@@ -1,0 +1,25 @@
+{
+  "name": "bloodconnect-backend-node",
+  "version": "1.0.0",
+  "description": "Express.js REST API backend for BloodConnect Emergency Blood Network",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "blood-donation",
+    "emergency-response",
+    "rest-api",
+    "express"
+  ],
+  "author": "BloodConnect Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <title>BloodConnect - Emergency Request</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { width: 100vw; margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    body { min-height: max(884px, 100dvh); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#ffdad6",
+            "on-tertiary-fixed": "#002113",
+            "primary-container": "#db322f",
+            "on-secondary-fixed": "#1a1c1c",
+            "secondary-fixed-dim": "#c6c6c7",
+            "tertiary-fixed": "#6ffbbe",
+            "on-secondary-fixed-variant": "#454747",
+            "surface-container-high": "#dee8ff",
+            "tertiary": "#006947",
+            "surface-container-highest": "#d8e3fb",
+            "inverse-primary": "#ffb4ac",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-surface-variant": "#5b403d",
+            "secondary-fixed": "#e2e2e2",
+            "primary": "#b7131a",
+            "on-secondary": "#ffffff",
+            "surface": "#f9f9ff",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#bb171c",
+            "on-secondary-container": "#616363",
+            "on-error-container": "#93000a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "outline-variant": "#e4beb9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#f5fff6",
+            "secondary-container": "#dfe0e0",
+            "background": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "surface-dim": "#cfdaf2",
+            "on-primary-fixed-variant": "#93000d",
+            "surface-container": "#e7eeff",
+            "inverse-on-surface": "#ecf1ff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#00855b",
+            "surface-container-low": "#f0f3ff",
+            "surface-bright": "#f9f9ff",
+            "on-surface": "#111c2d",
+            "secondary": "#5d5f5f",
+            "on-primary-fixed": "#410002",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "outline": "#906f6c"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-sm">
+        <a aria-label="Go Home" href="4-home.html">
+          <img alt="BloodConnect Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzo5vb3IUJ9bLqQMvAUndVNKcSe0ksycOKadzzg7QbMNgPsGwuLvIDTxD-PKfMyK5hOOB1P5l5xHCOHFvLNSlQAzqGI6tcMphy2J31qs0Aj3qEsH45woG1TBgTrw7E64bBtExaa-L88FIu0iDIFFEI4r23EggUVsycRC1kBUg0liLSSud66zdA4WcEPrjUJ7S6wjmKW48jNacJ4NIUWmWLNoQnqxy39UVY5lGJajne"/>
+        </a>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">BloodConnect</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Live SOS
+            </span>
+          </div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Emergency Requests</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <a aria-label="Quick SOS Alert" class="min-h-[44px] min-w-[44px] px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1 shadow-[0_0_0_2px_rgba(219,50,47,0.2)] hover:bg-primary transition-colors" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[18px]">e911_emergency</span>
+          <span>SOS</span>
+        </a>
+        <a aria-label="Profile" class="min-h-[44px] min-w-[44px] flex items-center justify-center p-0.5 rounded-full hover:opacity-90 transition-opacity" href="8-donor-dashboard.html">
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzrD3HF5rqLcch8nB6pNMewEqrhy3t7-FQ31hFJvAAgXBVv2LW8b2TG4zvs-zj2SF5Rwcl8OCj8fa1ZnJSjieSmdnwKAlCN_CpU2NxD1v631ZC77rmfQZeKm72qdkmS44or6jf6PCsrqRETd4Ouo7Ow9CSRCYAHeNdSIj-_UHqfiXqdsZafy3LjWAvhBSnzSC-Y82Zw3Aig4upJ84rWGPokvkNGhu0CBGe_GeaLkg"/>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="flex flex-col w-full gap-space-md px-margin pb-6">
+      <!-- Top Urgency Real-Time Live Banner -->
+      <div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary-container p-space-md shadow-lg shadow-primary/20">
+        <div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-primary-fixed/20 blur-xl pointer-events-none"></div>
+        <div class="flex items-start gap-space-sm relative z-10">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-lowest/20 flex items-center justify-center animate-bounce">
+            <span class="material-symbols-outlined text-[20px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">e911_emergency</span>
+          </div>
+          <div class="flex flex-col min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-headline-sm text-headline-sm font-bold tracking-tight">EMERGENCY BLOOD DISPATCH</span>
+              <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-lowest text-primary text-label-sm font-label-sm font-bold uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>Live Radio
+              </span>
+            </div>
+            <p class="font-body-sm text-body-sm opacity-95 text-on-primary-container mt-0.5">
+              Broadcast directly to verified donors, standby clinical ambulances, & nearby trauma response networks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Priority Level Segmented Control -->
+      <div class="flex flex-col gap-space-xs">
+        <div class="flex items-center justify-between px-1">
+          <span class="font-label-md text-label-md text-on-surface uppercase tracking-wide">Triage Severity Level</span>
+          <span class="font-label-sm text-label-sm text-primary font-bold flex items-center gap-0.5">
+            <span class="material-symbols-outlined text-[14px]">bolt</span> instant broadcast
+          </span>
+        </div>
+        <div class="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-surface-container-high" id="triage-selector" role="radiogroup">
+          <button class="priority-btn flex flex-col items-center justify-center py-2.5 px-1 rounded-lg bg-surface-container-lowest/60 text-on-surface transition-all text-center" onclick="selectPriority(this, 'normal')" type="button">
+            <span class="font-label-md text-label-md">Normal</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Elective / 24h</span>
+          </button>
+          <button class="priority-btn flex flex-col items-center justify-center py-2.5 px-1 rounded-lg bg-surface-container-lowest/60 text-on-surface transition-all text-center" onclick="selectPriority(this, 'urgent')" type="button">
+            <span class="font-label-md text-label-md">Urgent</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">&lt; 3 Hours</span>
+          </button>
+          <button class="priority-btn active flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-primary text-on-primary shadow-md shadow-primary/30 transition-all text-center relative overflow-hidden" onclick="selectPriority(this, 'critical')" type="button">
+            <span class="absolute top-1 right-1 flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span>
+            </span>
+            <div class="flex items-center gap-0.5">
+              <span class="material-symbols-outlined text-[16px] text-on-primary animate-pulse" style="font-variation-settings: 'FILL' 1;">warning</span>
+              <span class="font-label-md text-label-md font-bold">CRITICAL</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-primary-fixed leading-tight">Immediate Hazard</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Primary Triage Card: Patient & Blood Requirement -->
+      <div class="flex flex-col gap-space-md p-space-md rounded-2xl bg-surface-container-lowest shadow-sm">
+        <div class="flex flex-col gap-space-xs">
+          <label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="patient-name">
+            <span>Patient Full Name & Registry ID</span>
+            <span class="text-label-sm font-label-sm text-on-surface-variant">Required</span>
+          </label>
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">person</span>
+            <input class="w-full h-12 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest outline-none shadow-inner" id="patient-name" placeholder="Enter patient name..." type="text" value="Elena Rostova (ID #TR-88419)"/>
+          </div>
+        </div>
+
+        <!-- Blood Group Grid Picker -->
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center justify-between">
+            <label class="font-label-md text-label-md text-on-surface">Required Blood Group</label>
+            <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold">
+              <span class="material-symbols-outlined text-[14px]">bloodtype</span> Universal Needed
+            </span>
+          </div>
+          <div class="grid grid-cols-4 gap-2" id="blood-group-grid">
+            <button class="blood-btn relative flex flex-col items-center justify-center p-2 rounded-xl bg-primary-fixed text-on-primary-fixed shadow-md shadow-primary/20 scale-[1.02] transition-transform" onclick="selectBloodGroup(this, 'O-')" type="button">
+              <span class="font-headline-sm text-headline-sm font-extrabold text-primary">O-</span>
+              <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-tighter">Universal</span>
+              <span class="absolute -top-1.5 -right-1.5 bg-primary text-on-primary rounded-full px-1 py-0.2 font-label-sm text-[9px] font-bold">SOS</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'O+')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">O+</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Frequent</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'A+')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">A+</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Common</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'A-')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">A-</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Rare</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'B+')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">B+</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Common</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'B-')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">B-</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Rare</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'AB+')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">AB+</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Plasma</span>
+            </button>
+            <button class="blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all" onclick="selectBloodGroup(this, 'AB-')" type="button">
+              <span class="font-headline-sm text-headline-sm font-bold">AB-</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">V. Rare</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Units Counter & Donors Standby -->
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <div class="flex flex-col gap-1 p-3 rounded-xl bg-surface-container-low justify-between">
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Required Volume</span>
+            <div class="flex items-center justify-between">
+              <button aria-label="Decrease units" class="w-9 h-9 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center active:scale-95 transition-transform" onclick="adjustUnits(-1)" type="button">
+                <span class="material-symbols-outlined text-[18px]">remove</span>
+              </button>
+              <div class="flex items-baseline gap-0.5">
+                <span class="font-headline-md text-headline-md font-extrabold text-primary" id="unit-count">2</span>
+                <span class="font-label-md text-label-md text-on-surface font-semibold">Units</span>
+              </div>
+              <button aria-label="Increase units" class="w-9 h-9 rounded-lg bg-surface-container-highest text-on-surface flex items-center justify-center active:scale-95 transition-transform" onclick="adjustUnits(1)" type="button">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+              </button>
+            </div>
+            <span class="font-body-sm text-[11px] text-on-surface-variant text-center" id="volume-ml">~900 mL whole blood</span>
+          </div>
+
+          <div class="flex flex-col gap-1 p-3 rounded-xl bg-surface-container-low justify-between">
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-tertiary font-bold uppercase tracking-wider">Active Standby</span>
+              <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            </div>
+            <div class="flex items-baseline gap-1">
+              <span class="font-headline-md text-headline-md font-extrabold text-tertiary">14</span>
+              <span class="font-label-md text-label-md text-on-surface font-semibold">Donors</span>
+            </div>
+            <div class="flex items-center gap-1 font-body-sm text-[11px] text-on-surface-variant">
+              <span class="material-symbols-outlined text-[14px] text-tertiary">near_me</span>
+              <span>Within 4.2 km radius</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hospital & Verification Details -->
+      <div class="flex flex-col gap-space-sm p-space-md rounded-2xl bg-surface-container-lowest shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-label-md text-label-md text-on-surface uppercase tracking-wide">Destination Facility</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-bold">
+            <span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Verified Trauma Center
+          </span>
+        </div>
+        <div class="flex flex-col gap-2 p-3 rounded-xl bg-surface-container-low">
+          <div class="flex items-start gap-2.5">
+            <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+              <span class="material-symbols-outlined text-[24px]">local_hospital</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="font-label-lg text-label-lg font-bold text-on-surface line-clamp-1">St. Jude Memorial Hospital</span>
+              <span class="font-body-sm text-body-sm text-primary font-medium">Trauma Ward ICU • Wing 4, Floor 2</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">742 Evergreen Medical Blvd, Sector 9</span>
+            </div>
+          </div>
+          <div class="w-full h-24 bg-cover bg-center rounded-lg relative overflow-hidden shadow-inner" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgrHBHbICNkMfpcG0Xq_H-DNgNWzykONI2KZSA5YfoDHutQlkqaiOOlV6fq5eHX8hP-XRnWkXNSrbmeaf0BrRZmqi8TnZxd7C3D0Uz-4nrQ5q6MthRdgxKUdm4pbh6BPzIo_czt1ghJ5ivf_bfwVTnfIdZ5T3_CnFA2TBjtpoJgkjyQBo_dmQdOcgFXLAAcbpRVeZ3bbShhDBQBWaovO5OzF-e4sCb13H_qUwK7J8')">
+            <div class="absolute inset-0 bg-gradient-to-t from-on-background/70 via-transparent to-transparent flex items-end p-2 justify-between">
+              <span class="font-label-sm text-label-sm text-surface-container-lowest font-medium flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px] text-primary-fixed">navigation</span>
+                Fastest Ambulance Corridor Active
+              </span>
+              <span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-bold">ETA ~8 min</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-space-xs">
+          <label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="doctor-contact">
+            <span>Attending Surgeon / Critical Care Desk</span>
+            <span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5">
+              <span class="material-symbols-outlined text-[12px]">check_circle</span> Direct Dispatch Line
+            </span>
+          </label>
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">call</span>
+            <input class="w-full h-12 pl-10 pr-24 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest outline-none shadow-inner" id="doctor-contact" type="tel" value="+1 (555) 839-2041"/>
+            <span class="absolute right-3 px-2 py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-bold">
+              ICU Desk
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeframe Selector -->
+      <div class="flex flex-col gap-space-xs p-space-md rounded-2xl bg-surface-container-lowest shadow-sm">
+        <div class="flex items-center justify-between">
+          <label class="font-label-md text-label-md text-on-surface">Required Within</label>
+          <span class="font-label-sm text-label-sm text-primary font-bold">High urgency cutoff</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2" id="timeframe-group">
+          <button class="time-btn active py-2.5 px-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold flex flex-col items-center justify-center text-center shadow-sm" onclick="selectTimeframe(this)" type="button">
+            <span>&lt; 1 Hour</span>
+            <span class="font-label-sm text-[10px] text-primary-fixed">Immediate</span>
+          </button>
+          <button class="time-btn py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md flex flex-col items-center justify-center text-center transition-colors" onclick="selectTimeframe(this)" type="button">
+            <span>Within 6h</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">Same Shift</span>
+          </button>
+          <button class="time-btn py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md flex flex-col items-center justify-center text-center transition-colors" onclick="selectTimeframe(this)" type="button">
+            <span>Scheduled</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">Surgery Date</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Clinical Case Description & Note -->
+      <div class="flex flex-col gap-space-xs p-space-md rounded-2xl bg-surface-container-lowest shadow-sm">
+        <label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="clinical-notes">
+          <span>Critical Note & Surgical Context</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Displayed to Donors</span>
+        </label>
+        <div class="relative">
+          <textarea class="w-full p-3 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest outline-none shadow-inner resize-none" id="clinical-notes" placeholder="Provide surgery details or urgency notes..." rows="3">Patient undergoing emergency coronary surgery in OR-3. Rare O- negative needed immediately for transfusions. Hospital blood bank supply depleted.</textarea>
+        </div>
+        <div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm mt-1">
+          <span class="material-symbols-outlined text-[16px] text-primary">privacy_tip</span>
+          <span>Patient identity anonymized per HIPAA until donor accepts.</span>
+        </div>
+      </div>
+
+      <!-- Big Vivid SOS Dispatch Button -->
+      <div class="flex flex-col gap-2 pt-2">
+        <button class="w-full min-h-[56px] rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_0_4px_rgba(219,50,47,0.2),0_12px_28px_rgba(183,19,26,0.35)] active:scale-[0.98] transition-all hover:bg-primary" id="dispatch-button" onclick="triggerBroadcastModal()" type="button">
+          <span class="material-symbols-outlined text-[24px] animate-pulse" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+          <span>Submit & Broadcast SOS Alert Now</span>
+        </button>
+        <div class="flex items-center justify-center gap-1 text-center py-2 text-on-surface-variant font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+          <span>Zero Spam Guarantee • Verified with National Trauma Registry #904-B</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Broadcast Confirmation Modal Overlay -->
+  <div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden flex-col justify-end p-margin pb-safe" id="broadcast-modal">
+    <div class="w-full bg-surface-container-lowest rounded-2xl p-space-lg flex flex-col gap-space-md shadow-2xl relative">
+      <div class="w-12 h-1.5 bg-secondary-container rounded-full mx-auto -mt-1 mb-1"></div>
+      <div class="w-16 h-16 rounded-full bg-primary-fixed text-primary mx-auto flex items-center justify-center shadow-lg shadow-primary/20">
+        <span class="material-symbols-outlined text-[36px] animate-spin" style="animation-duration: 2.5s;">radar</span>
+      </div>
+      <div class="flex flex-col text-center">
+        <span class="font-headline-md text-headline-md text-on-surface font-extrabold">Broadcasting Live Dispatch</span>
+        <span class="font-body-md text-body-md text-primary font-bold mt-1" id="broadcast-summary">Targeting 14 Verified Donors & Dispatch Line</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-2" id="broadcast-desc">
+          Your emergency request for <strong id="modal-blood-req">2 Units of O- Blood</strong> is being priority routed to nearby responders and hospital logisticians.
+        </p>
+      </div>
+      <div class="rounded-xl bg-surface-container-low p-3 flex flex-col gap-2">
+        <div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+            ICU Verification Logged
+          </span>
+          <span class="font-label-sm text-label-sm text-tertiary font-bold">Passed</span>
+        </div>
+        <div class="flex items-center justify-between text-on-surface font-body-sm text-body-sm">
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+            Direct SMS & Push Beacon
+          </span>
+          <span class="font-label-sm text-label-sm text-primary font-bold animate-pulse">Sending...</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mt-2">
+        <button class="w-full h-12 rounded-xl bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="closeBroadcastModal()" type="button">
+          Cancel Broadcast
+        </button>
+        <button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold shadow-md shadow-primary/30" onclick="trackResponders()" type="button">
+          Track Live Responders
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(30,41,59,0.06)]" data-active-classes="text-primary font-label-md">
+    <div class="h-16 px-space-xs flex items-center justify-around relative">
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="4-home.html">
+        <span class="material-symbols-outlined text-[24px]">water_drop</span>
+        <span class="font-label-sm text-label-sm">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="6-find-donors.html">
+        <span class="material-symbols-outlined text-[24px]">person_search</span>
+        <span class="font-label-sm text-label-sm">Find Donors</span>
+      </a>
+      <div class="relative -top-5 flex flex-col items-center">
+        <a aria-current="page" aria-label="Emergency Request" class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-[0_0_0_4px_rgba(229,57,53,0.18),0_12px_28px_rgba(183,19,26,0.35)] active:scale-95 transition-transform hover:bg-primary-container text-primary font-label-md" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[28px] text-on-primary">e911_emergency</span>
+        </a>
+        <span class="font-label-sm text-label-sm text-primary font-bold mt-1">SOS Request</span>
+      </div>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors relative" href="index.html#notifications">
+        <div class="relative">
+          <span class="material-symbols-outlined text-[24px]">notifications</span>
+          <span class="absolute -top-0.5 -right-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
+        </div>
+        <span class="font-label-sm text-label-sm">Alerts</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="8-donor-dashboard.html">
+        <span class="material-symbols-outlined text-[24px]">account_circle</span>
+        <span class="font-label-sm text-label-sm">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    let currentUnits = 2;
+    let selectedBlood = 'O-';
+    let selectedPriorityLevel = 'critical';
+
+    function adjustUnits(delta) {
+      currentUnits = Math.max(1, Math.min(10, currentUnits + delta));
+      document.getElementById('unit-count').innerText = currentUnits;
+      document.getElementById('volume-ml').innerText = `~${currentUnits * 450} mL whole blood`;
+    }
+
+    function selectBloodGroup(element, group) {
+      selectedBlood = group;
+      const buttons = document.querySelectorAll('.blood-btn');
+      buttons.forEach(btn => {
+        btn.className = "blood-btn flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container text-on-surface transition-all";
+      });
+      element.className = "blood-btn relative flex flex-col items-center justify-center p-2 rounded-xl bg-primary-fixed text-on-primary-fixed shadow-md shadow-primary/20 scale-[1.02] transition-transform";
+    }
+
+    function selectPriority(element, level) {
+      selectedPriorityLevel = level;
+      const buttons = document.querySelectorAll('.priority-btn');
+      buttons.forEach(btn => {
+        btn.className = "priority-btn flex flex-col items-center justify-center py-2.5 px-1 rounded-lg bg-surface-container-lowest/60 text-on-surface transition-all text-center";
+      });
+      if (level === 'critical') {
+        element.className = "priority-btn active flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-primary text-on-primary shadow-md shadow-primary/30 transition-all text-center relative overflow-hidden";
+      } else {
+        element.className = "priority-btn active flex flex-col items-center justify-center py-2.5 px-1 rounded-lg bg-surface-container-highest text-on-surface font-bold transition-all text-center shadow-sm";
+      }
+    }
+
+    function selectTimeframe(element) {
+      const buttons = document.querySelectorAll('.time-btn');
+      buttons.forEach(btn => {
+        btn.className = "time-btn py-2.5 px-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md flex flex-col items-center justify-center text-center transition-colors";
+      });
+      element.className = "time-btn active py-2.5 px-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold flex flex-col items-center justify-center text-center shadow-sm";
+    }
+
+    function triggerBroadcastModal() {
+      document.getElementById('modal-blood-req').innerText = `${currentUnits} Units of ${selectedBlood} Blood`;
+      const modal = document.getElementById('broadcast-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeBroadcastModal() {
+      const modal = document.getElementById('broadcast-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function trackResponders() {
+      closeBroadcastModal();
+      window.location.href = '6-find-donors.html';
+    }
+  </script>
+</body>
+</html>

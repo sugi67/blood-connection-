@@ -1,0 +1,329 @@
+{
+  "users": [
+    {
+      "id": "usr-1",
+      "name": "Dr. Priya Sharma",
+      "email": "dr.priya@fortiscare.org",
+      "phone": "+1 (555) 389-2041",
+      "role": "donor",
+      "bloodGroup": "O+",
+      "isVerified": true,
+      "token": "token-priya-01",
+      "createdAt": "2026-01-10T08:30:00Z"
+    },
+    {
+      "id": "usr-2",
+      "name": "Marcus Vance",
+      "email": "marcus.vance@care.org",
+      "phone": "+1 (555) 482-1940",
+      "role": "donor",
+      "bloodGroup": "A+",
+      "isVerified": true,
+      "token": "token-marcus-02",
+      "createdAt": "2026-02-15T11:20:00Z"
+    },
+    {
+      "id": "usr-3",
+      "name": "St. Jude Trauma Desk",
+      "email": "trauma@stjudememorial.org",
+      "phone": "+1 (555) 839-2041",
+      "role": "hospital",
+      "bloodGroup": "AB+",
+      "isVerified": true,
+      "token": "token-hospital-03",
+      "createdAt": "2025-11-01T09:00:00Z"
+    }
+  ],
+  "donors": [
+    {
+      "id": "donor-1794614406",
+      "name": "Dr. Marcus Bell",
+      "blood": "O-",
+      "distance": 0.8,
+      "eta": "< 5 mins",
+      "heroLevel": "Registered Lifesaver Hero",
+      "isAvail": true,
+      "phone": "+1 (555) 019-9944",
+      "email": "donor@bloodconnect.org",
+      "roleDesc": "Metro Center Standby Responder",
+      "totalDonations": 1,
+      "livesSaved": 3,
+      "lastDonated": "2026-11-14",
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuDapvBaDrP5sRSwNSU3FIdAHM69g47PWSj2B1aiheElMvGE8Y6v8dFzbVO6cMklbWcnh5vD9gtU-NoaPjsnG2z2PesVeFUPa39_y1jMZLWnp4lEdhlboI_qxFvyz5E6Xl1-lFcwHAaH69PD7T3ONF_e4h5AOWEtV-9L5BhgL6qNijxsbMt17nYx1u4H8scL056A9i4VmbIa8Rve7K-BN8B8JwML1Qiglrnqx-DZmCE"
+    },
+    {
+      "id": "donor-1",
+      "name": "Alex Mercer",
+      "blood": "O+",
+      "distance": 1.4,
+      "eta": "< 10 mins",
+      "heroLevel": "18 Donations (Hero Level)",
+      "isAvail": true,
+      "phone": "+1 (555) 0192",
+      "email": "alex.mercer@gmail.com",
+      "roleDesc": "Universal RBC Donor",
+      "totalDonations": 18,
+      "livesSaved": 54,
+      "lastDonated": "2026-08-12",
+      "lat": 42.3601,
+      "lng": -71.0589,
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuDG9015KBSrHgghD7yPVbh3f2tGlzGwU2x5YM5YvCucU2H30RDXfuhU-AvIhuctyzY6gWFXTl6tAyk38WgDl0VM7rS3FBJjC2p90OqxaYQvcDE6ALU_NfKVurtt8v3Wg2bMpsUtGMdwx5xgylrWD5VHTI-Hn5oFpAZmKpKqpqiEUsHD2wTxThHwLDRS6Bx9orntvuoa1VQlQB90tvkwprxX84rk2mCrksInl43n6zE"
+    },
+    {
+      "id": "donor-2",
+      "name": "Elena Rostova",
+      "blood": "A+",
+      "distance": 2.8,
+      "eta": "< 15 mins",
+      "heroLevel": "Verified Healthcare Staff",
+      "isAvail": true,
+      "phone": "+1 (555) 0184",
+      "email": "elena.rostova@metrohealth.org",
+      "roleDesc": "Cardiothoracic Nurse",
+      "totalDonations": 11,
+      "livesSaved": 33,
+      "lastDonated": "2026-09-04",
+      "lat": 42.3551,
+      "lng": -71.065,
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcVirAI1u5v0GMtbWSGumHTe83JP62IA07Isd2ToIYL44bUIJlz3qIWZdJk6pWxJUdOHGAxIGBSY0oR-M0awcAhCpTfj92EEuDgqpqVHbpx9e4uBXK_qQ_Atu6OCbDWCYPApBK9lhJr3EE25lRC-Dq88CJKc8cqflG2sZWwuh-24BEVnT5q1I1OjXCMVSmLSVB5E-fmeUXMJ4uM6gEkPTDikyH1UF74Bq9aSnN60Q"
+    },
+    {
+      "id": "donor-3",
+      "name": "Rahul Varma",
+      "blood": "O+",
+      "distance": 1.2,
+      "eta": "< 5 mins",
+      "heroLevel": "12x Lifesaver Hero",
+      "isAvail": true,
+      "phone": "+1 (555) 0192",
+      "email": "rahul.varma@carenet.org",
+      "roleDesc": "Regular Volunteer",
+      "totalDonations": 12,
+      "livesSaved": 36,
+      "lastDonated": "2026-08-14",
+      "lat": 42.362,
+      "lng": -71.055,
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuA32OcqygXTdr32it7XIuszaDVfW1uli6A3WNMRuPynGJy_ahSWTGX3wB46Fh3GFAJP6q9lsGJxbnZGGBxARTvo-2E_R7YPymeqf4fL21-eKvKheTAVeq-yUk46WJHY8PBI-aoXFK6e_jPPP_vlwzPvfJofEx5V0-x8mN69RS11jyA0K5hxnxVQ82icOHCHVztHSPsmQlcoVBqr1KbUmGvoH_nrXU4GGOwlLOUVUHo"
+    },
+    {
+      "id": "donor-4",
+      "name": "Sarah Jenkins",
+      "blood": "A+",
+      "distance": 3.5,
+      "eta": "On-Call",
+      "heroLevel": "Platelet Hero",
+      "isAvail": true,
+      "phone": "+1 (555) 0193",
+      "email": "sarah.jenkins@lifehub.org",
+      "roleDesc": "Universal Platelet Donor",
+      "totalDonations": 9,
+      "livesSaved": 27,
+      "lastDonated": "2026-07-20",
+      "lat": 42.345,
+      "lng": -71.07,
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuBP-zX0U3-_arPSwUb7lI0LCVJgbJvK7TRWn6w2RLsIct9em--MQHns6kShQExRujIMbRBQxlB5J3x6a1bk2z2WzOooHgz5URIv6NdPvrnauHUwnjGp1Ty9MjGaExwONeyOp6wqDnIcX5eE-GinNYcgOfg044oyeo3edNXbtJh5-taI6gWKhxKoVbUOk0qq3KHz3Moxst8cUEjwBGsH-tXHiCE0YjqTqpi_b1YErCQ"
+    },
+    {
+      "id": "donor-5",
+      "name": "David Kalu",
+      "blood": "O-",
+      "distance": 4.1,
+      "eta": "Standby",
+      "heroLevel": "Critical Donor Priority",
+      "isAvail": false,
+      "phone": "+1 (555) 0143",
+      "email": "david.kalu@transfusion.org",
+      "roleDesc": "Universal Rare Donor",
+      "totalDonations": 14,
+      "livesSaved": 42,
+      "lastDonated": "2026-06-15",
+      "lat": 42.37,
+      "lng": -71.04,
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuBECqA9XhzuIc6KRngNy5XiJEvfhzDes0hhxdXwwVFzcXwJrxpB9-Q2X-ofjDF_Mmm72r6k5VfTsbf3WbpOmSGUM9NyDEIhMcWd0OyNhlmeZJnBWdMtvoMAnDAVOBbtu9Ltu-woOenGz9iBpE_fn-4zz9GminihUHwuFWG-SVQjOXutN-SM-To73vTaO50ibO2QVAef_P3vhN-VhZkpD2M8SlhY8BiFyEERDUeDmGE"
+    }
+  ],
+  "emergencies": [
+    {
+      "id": "emg-1794614494",
+      "patientName": "Elena Vance",
+      "registryId": "TR-14494",
+      "bloodGroup": "O-",
+      "unitsRequired": 3,
+      "priority": "critical",
+      "timeframe": "< 1 Hour",
+      "hospitalName": "St. Jude Memorial Hospital (Trauma Ward)",
+      "hospitalWard": "Trauma Ward ICU \u2022 Wing 4",
+      "doctorContact": "+1 (555) 839-2041",
+      "notes": "Acute hemorrhagic trauma shock",
+      "status": "in-progress",
+      "createdAt": "2026-11-14T05:31:34.375632Z",
+      "matchingDonorsCount": 2,
+      "dispatchedCount": 14,
+      "responders": [
+        "donor-1"
+      ]
+    },
+    {
+      "id": "emg-101",
+      "patientName": "Elena Rostova",
+      "registryId": "TR-88419",
+      "bloodGroup": "O-",
+      "unitsRequired": 2,
+      "priority": "critical",
+      "timeframe": "< 1 Hour",
+      "hospitalName": "St. Jude Memorial Hospital",
+      "hospitalWard": "Trauma Ward ICU \u2022 Wing 4, Floor 2",
+      "hospitalAddress": "742 Evergreen Medical Blvd, Sector 9",
+      "doctorContact": "+1 (555) 839-2041",
+      "notes": "Patient undergoing emergency coronary surgery in OR-3. Rare O- negative needed immediately for transfusions. Hospital blood bank supply depleted.",
+      "status": "active",
+      "createdAt": "2026-11-14T10:15:00Z",
+      "responders": [
+        "donor-1"
+      ]
+    },
+    {
+      "id": "emg-102",
+      "patientName": "Michael Chen",
+      "registryId": "TR-90124",
+      "bloodGroup": "A+",
+      "unitsRequired": 1,
+      "priority": "urgent",
+      "timeframe": "Within 6h",
+      "hospitalName": "City General Hospital",
+      "hospitalWard": "Emergency Wing A",
+      "hospitalAddress": "120 Commonwealth Ave",
+      "doctorContact": "+1 (555) 912-3344",
+      "notes": "Accident trauma stabilization. Hemoglobin level falling.",
+      "status": "active",
+      "createdAt": "2026-11-14T09:40:00Z",
+      "responders": []
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-1794614494",
+      "type": "urgent",
+      "title": "CRITICAL: 3 Units of O- Needed",
+      "location": "St. Jude Memorial Hospital (Trauma Ward) (Trauma Ward ICU \u2022 Wing 4)",
+      "blood": "O-",
+      "time": "Just now",
+      "desc": "Acute hemorrhagic trauma shock",
+      "unread": true,
+      "requestId": "emg-1794614494"
+    },
+    {
+      "id": "alert-1",
+      "type": "urgent",
+      "title": "Code Red Trauma Transfusion Needed",
+      "location": "St. Jude Memorial Hospital (ICU Ward 4)",
+      "blood": "O- / A+",
+      "time": "3 mins ago",
+      "desc": "Emergency coronary patient requiring immediate 2 units of whole blood.",
+      "unread": true,
+      "requestId": "emg-101"
+    },
+    {
+      "id": "alert-2",
+      "type": "urgent",
+      "title": "Urgent Platelet Request",
+      "location": "City General Oncology Wing",
+      "blood": "A+",
+      "time": "24 mins ago",
+      "desc": "Pediatric unit standby. On-call donors alerted.",
+      "unread": true,
+      "requestId": "emg-102"
+    },
+    {
+      "id": "alert-3",
+      "type": "camps",
+      "title": "Blood Drive Tomorrow at City Atrium",
+      "location": "Main Atrium Hall, Sector 9",
+      "blood": "All Groups",
+      "time": "2 hours ago",
+      "desc": "Walk-ins welcome from 9:00 AM to 4:00 PM. Registered nurses on site.",
+      "unread": false,
+      "campId": "camp-1"
+    }
+  ],
+  "bloodBanks": [
+    {
+      "id": "bank-1",
+      "name": "Metropolitan Central Blood Bank",
+      "address": "450 Hospital Plaza, Sector 4",
+      "phone": "+1 (555) 0199",
+      "distance": "2.1 km",
+      "status": "Normal Stock",
+      "stock": {
+        "O+": 34,
+        "A+": 21,
+        "B+": 18,
+        "AB+": 12,
+        "O-": 2,
+        "A-": 6,
+        "B-": 4,
+        "AB-": 1
+      }
+    },
+    {
+      "id": "bank-2",
+      "name": "St. Jude Regional Depot",
+      "address": "742 Evergreen Medical Blvd",
+      "phone": "+1 (555) 0198",
+      "distance": "3.8 km",
+      "status": "O- Critical",
+      "stock": {
+        "O+": 14,
+        "A+": 19,
+        "B+": 12,
+        "AB+": 8,
+        "O-": 0,
+        "A-": 3,
+        "B-": 2,
+        "AB-": 0
+      }
+    },
+    {
+      "id": "bank-3",
+      "name": "Red Cross Metro Transfusion Wing",
+      "address": "88 University Ave",
+      "phone": "+1 (555) 0177",
+      "distance": "5.4 km",
+      "status": "Active Resupply",
+      "stock": {
+        "O+": 48,
+        "A+": 35,
+        "B+": 29,
+        "AB+": 15,
+        "O-": 8,
+        "A-": 11,
+        "B-": 7,
+        "AB-": 3
+      }
+    }
+  ],
+  "camps": [
+    {
+      "id": "camp-1",
+      "title": "City General Blood Drive",
+      "organizer": "American Red Cross & City Health",
+      "date": "Tomorrow",
+      "time": "9:00 AM \u2013 4:00 PM",
+      "location": "Main Atrium Hall, Sector 9",
+      "registeredCount": 142,
+      "targetUnits": 200,
+      "rsvps": []
+    },
+    {
+      "id": "camp-2",
+      "title": "Tech Park Community Blood Camp",
+      "organizer": "Metro Lifeline Foundation",
+      "date": "This Saturday",
+      "time": "10:00 AM \u2013 5:00 PM",
+      "location": "Building 4 Lawn, Innovation District",
+      "registeredCount": 85,
+      "targetUnits": 150,
+      "rsvps": []
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <title>BloodConnect - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { width: 100vw; margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    body { min-height: max(884px, 100dvh); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#ffdad6",
+            "on-tertiary-fixed": "#002113",
+            "primary-container": "#db322f",
+            "on-secondary-fixed": "#1a1c1c",
+            "secondary-fixed-dim": "#c6c6c7",
+            "tertiary-fixed": "#6ffbbe",
+            "on-secondary-fixed-variant": "#454747",
+            "surface-container-high": "#dee8ff",
+            "tertiary": "#006947",
+            "surface-container-highest": "#d8e3fb",
+            "inverse-primary": "#ffb4ac",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-surface-variant": "#5b403d",
+            "secondary-fixed": "#e2e2e2",
+            "primary": "#b7131a",
+            "on-secondary": "#ffffff",
+            "surface": "#f9f9ff",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#bb171c",
+            "on-secondary-container": "#616363",
+            "on-error-container": "#93000a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "outline-variant": "#e4beb9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#f5fff6",
+            "secondary-container": "#dfe0e0",
+            "background": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "surface-dim": "#cfdaf2",
+            "on-primary-fixed-variant": "#93000d",
+            "surface-container": "#e7eeff",
+            "inverse-on-surface": "#ecf1ff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#00855b",
+            "surface-container-low": "#f0f3ff",
+            "surface-bright": "#f9f9ff",
+            "on-surface": "#111c2d",
+            "secondary": "#5d5f5f",
+            "on-primary-fixed": "#410002",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "outline": "#906f6c"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-sm">
+        <img alt="BloodConnect Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzo5vb3IUJ9bLqQMvAUndVNKcSe0ksycOKadzzg7QbMNgPsGwuLvIDTxD-PKfMyK5hOOB1P5l5xHCOHFvLNSlQAzqGI6tcMphy2J31qs0Aj3qEsH45woG1TBgTrw7E64bBtExaa-L88FIu0iDIFFEI4r23EggUVsycRC1kBUg0liLSSud66zdA4WcEPrjUJ7S6wjmKW48jNacJ4NIUWmWLNoQnqxy39UVY5lGJajne"/>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">BloodConnect</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Live SOS
+            </span>
+          </div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Home</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <a aria-label="Quick SOS Alert" class="min-h-[44px] min-w-[44px] px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1 shadow-[0_0_0_2px_rgba(219,50,47,0.2)] hover:bg-primary transition-colors" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[18px]">e911_emergency</span>
+          <span>SOS</span>
+        </a>
+        <a aria-label="Profile" class="min-h-[44px] min-w-[44px] flex items-center justify-center p-0.5 rounded-full hover:opacity-90 transition-opacity" href="8-donor-dashboard.html">
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzrD3HF5rqLcch8nB6pNMewEqrhy3t7-FQ31hFJvAAgXBVv2LW8b2TG4zvs-zj2SF5Rwcl8OCj8fa1ZnJSjieSmdnwKAlCN_CpU2NxD1v631ZC77rmfQZeKm72qdkmS44or6jf6PCsrqRETd4Ouo7Ow9CSRCYAHeNdSIj-_UHqfiXqdsZafy3LjWAvhBSnzSC-Y82Zw3Aig4upJ84rWGPokvkNGhu0CBGe_GeaLkg"/>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="flex flex-col w-full pb-10 space-y-5 px-margin">
+      <!-- 1. Top Welcome & Donor Status Card -->
+      <section class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col space-y-3 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3 min-w-0">
+            <div class="relative flex-shrink-0">
+              <img class="w-12 h-12 rounded-full object-cover shadow-sm" alt="Dr. Priya Sharma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK2boaR78ME817TE7IR27LzgUgWn7tgIFmZU5UoD2P9m5-TLVjnwTAjY8jDr5XgywrEPFclHJYjrrSrdyPBuDg8ZHP6sb6vGNguXLSTpxKzg11X8MPYFPEoQ9N8FMKjxa8GjQh9V3kXAscwuje1DTxm9T4UgS_1cYKsO9qm2euag77fAXFvB7OSpF07HUaXfmxglyMqxCX10SV8IjtpfrZk2HiXSINQ_E-HdY4pzw"/>
+              <span class="material-symbols-outlined absolute -bottom-1 -right-1 text-tertiary-container bg-surface-container-lowest rounded-full text-[16px] leading-none p-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <div class="flex items-center space-x-1">
+                <h1 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Hello, Dr. Priya 👋</h1>
+              </div>
+              <span class="font-body-sm text-body-sm text-on-surface-variant truncate">Cardiothoracic Resident • Fortis Care</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-end flex-shrink-0">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-sm">
+              O+ Donor
+            </span>
+          </div>
+        </div>
+        <!-- Status Strip & Quick Availability Switch -->
+        <div class="flex items-center justify-between bg-surface-container-low px-space-sm py-2 rounded-lg">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-ping" id="status-indicator"></span>
+            <span class="font-label-md text-label-md text-on-surface font-medium" id="status-label">Ready to Donate</span>
+          </div>
+          <button aria-label="Toggle donation status" class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container shadow-sm transition-all active:scale-95" id="availabilityToggle" onclick="toggleStatus()">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            <span class="font-label-sm text-label-sm font-bold" id="availabilityText">Active & Ready</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. Prominent Emergency SOS Blood Request CTA Banner -->
+      <section class="w-full relative rounded-xl overflow-hidden bg-gradient-to-br from-primary-container via-primary to-on-primary-fixed text-on-primary p-space-lg shadow-xl shadow-primary/20">
+        <div class="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-on-primary/10 blur-2xl pointer-events-none"></div>
+        <div class="absolute right-4 top-4 flex items-center justify-center">
+          <span class="relative flex h-8 w-8">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-surface-container-lowest opacity-60"></span>
+            <span class="relative inline-flex rounded-full h-8 w-8 bg-surface-container-lowest/30 backdrop-blur-sm items-center justify-center text-on-primary">
+              <span class="material-symbols-outlined text-[20px] text-surface-container-lowest">e911_emergency</span>
+            </span>
+          </span>
+        </div>
+        <div class="flex flex-col space-y-2 relative z-10 pr-10">
+          <div class="inline-flex items-center space-x-1 text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider font-bold">
+            <span class="material-symbols-outlined text-[14px]">cell_tower</span>
+            <span>Instant Hospital Dispatch</span>
+          </div>
+          <h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-surface-container-lowest">
+            Need Blood Urgently?
+          </h2>
+          <p class="font-body-md text-body-md text-surface-container-low/90 leading-snug">
+            Broadcast alerts to <strong class="text-surface-container-lowest font-semibold">350+ verified donors</strong> within 5km in under 30 seconds.
+          </p>
+        </div>
+        <div class="mt-4 pt-2 flex items-center gap-space-sm relative z-10">
+          <a class="flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-surface-container-low transition-all active:scale-[0.98]" href="7-emergency-request.html">
+            <span class="material-symbols-outlined text-[20px]">crisis_alert</span>
+            <span>Request Blood Now</span>
+          </a>
+          <a aria-label="Quick Emergency Call" class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-xl bg-surface-container-lowest/20 backdrop-blur-md text-surface-container-lowest shadow-sm hover:bg-surface-container-lowest/30 transition-transform active:scale-95" href="tel:911">
+            <span class="material-symbols-outlined text-[22px]">phone_in_talk</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 3. Quick Action Grid -->
+      <section class="w-full">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Emergency Services</h3>
+          <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fast Access</span>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <!-- Find Donors -->
+          <a class="flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors group text-center" href="6-find-donors.html">
+            <div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary group-hover:scale-105 transition-transform mb-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">person_search</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface font-semibold line-clamp-1">Find Donors</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant line-clamp-1">Near you</span>
+          </a>
+          <!-- Nearby Blood Banks -->
+          <a class="flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors group text-center" href="index.html#blood-banks">
+            <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface group-hover:scale-105 transition-transform mb-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">local_hospital</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface font-semibold line-clamp-1">Blood Banks</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant line-clamp-1">14 open</span>
+          </a>
+          <!-- Donation Camps -->
+          <a class="flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors group text-center" href="index.html#donation-camps">
+            <div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary group-hover:scale-105 transition-transform mb-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">event_available</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface font-semibold line-clamp-1">Live Camps</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant line-clamp-1">3 today</span>
+          </a>
+          <!-- Compatibility Matrix -->
+          <a class="flex flex-col items-center p-2 rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors group text-center" href="index.html#compatibility">
+            <div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-secondary group-hover:scale-105 transition-transform mb-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">science</span>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface font-semibold line-clamp-1">Compatibility</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant line-clamp-1">Lab guide</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 4. Blood Group Quick Selector & Active Supply -->
+      <section class="w-full flex flex-col space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-1.5">
+            <span class="material-symbols-outlined text-primary text-[20px]">water_drop</span>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Live Blood Availability</h3>
+          </div>
+          <span class="inline-flex items-center text-label-sm font-label-sm text-tertiary font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1 animate-pulse"></span>Live Network
+          </span>
+        </div>
+        <!-- Blood Group Buttons Grid -->
+        <div class="grid grid-cols-4 gap-2">
+          <!-- O+ Active Selection -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-primary text-on-primary flex flex-col items-center justify-center shadow-md transition-all active:scale-95 text-center relative overflow-hidden" onclick="filterGroup('O+', this)">
+            <span class="font-headline-sm text-headline-sm font-black">O+</span>
+            <span class="font-label-sm text-[10px] font-medium text-surface-container-low">42 Active</span>
+          </button>
+          <!-- A+ -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center" onclick="filterGroup('A+', this)">
+            <span class="font-headline-sm text-headline-sm font-black text-primary">A+</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">28 Active</span>
+          </button>
+          <!-- B+ -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center" onclick="filterGroup('B+', this)">
+            <span class="font-headline-sm text-headline-sm font-black text-primary">B+</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">35 Active</span>
+          </button>
+          <!-- AB+ -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center" onclick="filterGroup('AB+', this)">
+            <span class="font-headline-sm text-headline-sm font-black text-primary">AB+</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">19 Active</span>
+          </button>
+          <!-- O- (Rare) -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center relative" onclick="filterGroup('O-', this)">
+            <span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-primary"></span>
+            <span class="font-headline-sm text-headline-sm font-black text-primary">O-</span>
+            <span class="font-label-sm text-[10px] text-error font-medium">4 Rare</span>
+          </button>
+          <!-- A- -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center" onclick="filterGroup('A-', this)">
+            <span class="font-headline-sm text-headline-sm font-black text-primary">A-</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">9 Active</span>
+          </button>
+          <!-- B- -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center" onclick="filterGroup('B-', this)">
+            <span class="font-headline-sm text-headline-sm font-black text-primary">B-</span>
+            <span class="font-label-sm text-[10px] text-on-surface-variant">7 Active</span>
+          </button>
+          <!-- AB- (Critical Shortage) -->
+          <button class="blood-filter-pill p-2 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center shadow-sm hover:bg-surface-container-low transition-all active:scale-95 text-center relative" onclick="filterGroup('AB-', this)">
+            <span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-error"></span>
+            <span class="font-headline-sm text-headline-sm font-black text-primary">AB-</span>
+            <span class="font-label-sm text-[10px] text-error font-medium">2 Critical</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 5. Nearby Available Donors Carousel / Cards -->
+      <section class="w-full flex flex-col space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Verified Donors Nearby</h3>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Sorted by response speed & proximity</span>
+          </div>
+          <a class="font-label-md text-label-md text-primary font-bold hover:underline flex items-center" href="6-find-donors.html">
+            <span>View all</span>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          </a>
+        </div>
+        <!-- Donor Cards Stack -->
+        <div class="flex flex-col space-y-3" id="donors-list">
+          <!-- Donor 1: Rahul V. -->
+          <div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col space-y-3" data-blood="O+">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="relative">
+                  <img class="w-12 h-12 rounded-full object-cover shadow-sm" alt="Rahul Varma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA32OcqygXTdr32it7XIuszaDVfW1uli6A3WNMRuPynGJy_ahSWTGX3wB46Fh3GFAJP6q9lsGJxbnZGGBxARTvo-2E_R7YPymeqf4fL21-eKvKheTAVeq-yUk46WJHY8PBI-aoXFK6e_jPPP_vlwzPvfJofEx5V0-x8mN69RS11jyA0K5hxnxVQ82icOHCHVztHSPsmQlcoVBqr1KbUmGvoH_nrXU4GGOwlLOUVUHo"/>
+                  <span class="material-symbols-outlined absolute -bottom-1 -right-1 text-tertiary-container bg-surface-container-lowest rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+                <div class="flex flex-col min-w-0">
+                  <div class="flex items-center space-x-1.5">
+                    <span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Rahul Varma</span>
+                    <span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">12x Donor</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+                    <span class="inline-flex items-center">
+                      <span class="material-symbols-outlined text-[14px] mr-0.5 text-primary">near_me</span>
+                      1.2 km away
+                    </span>
+                    <span>•</span>
+                    <span>Last gave 3 mos ago</span>
+                  </div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-primary-fixed text-primary font-headline-sm text-headline-sm font-black shadow-sm">
+                O+
+              </span>
+            </div>
+            <div class="flex items-center justify-between pt-1 gap-2">
+              <div class="inline-flex items-center space-x-1 text-tertiary font-label-sm text-label-sm">
+                <span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                <span>Responds in &lt; 5 mins</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <button class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all active:scale-95 flex items-center space-x-1 shadow-sm" onclick="requestDirect('Rahul Varma', this)">
+                  <span class="material-symbols-outlined text-[16px]">emergency_home</span>
+                  <span>Request</span>
+                </button>
+                <a aria-label="Direct Phone Contact" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors" href="tel:5550192">
+                  <span class="material-symbols-outlined text-[18px]">phone</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donor 2: Sarah Jenkins -->
+          <div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col space-y-3" data-blood="A+">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="relative">
+                  <img class="w-12 h-12 rounded-full object-cover shadow-sm" alt="Sarah Jenkins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP-zX0U3-_arPSwUb7lI0LCVJgbJvK7TRWn6w2RLsIct9em--MQHns6kShQExRujIMbRBQxlB5J3x6a1bk2z2WzOooHgz5URIv6NdPvrnauHUwnjGp1Ty9MjGaExwONeyOp6wqDnIcX5eE-GinNYcgOfg044oyeo3edNXbtJh5-taI6gWKhxKoVbUOk0qq3KHz3Moxst8cUEjwBGsH-tXHiCE0YjqTqpi_b1YErCQ"/>
+                  <span class="material-symbols-outlined absolute -bottom-1 -right-1 text-tertiary-container bg-surface-container-lowest rounded-full text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+                <div class="flex flex-col min-w-0">
+                  <div class="flex items-center space-x-1.5">
+                    <span class="font-label-lg text-label-lg font-bold text-on-surface truncate">Sarah Jenkins</span>
+                    <span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary font-semibold">Platelet Hero</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+                    <span class="inline-flex items-center">
+                      <span class="material-symbols-outlined text-[14px] mr-0.5 text-primary">near_me</span>
+                      3.5 km away
+                    </span>
+                    <span>•</span>
+                    <span>Last gave 4 mos ago</span>
+                  </div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-surface-container text-on-surface font-headline-sm text-headline-sm font-black shadow-sm">
+                A+
+              </span>
+            </div>
+            <div class="flex items-center justify-between pt-1 gap-2">
+              <div class="inline-flex items-center space-x-1 text-tertiary font-label-sm text-label-sm">
+                <span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                <span>Available on-call</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <button class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all active:scale-95 flex items-center space-x-1 shadow-sm" onclick="requestDirect('Sarah Jenkins', this)">
+                  <span class="material-symbols-outlined text-[16px]">emergency_home</span>
+                  <span>Request</span>
+                </button>
+                <a aria-label="Direct Phone Contact" class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors" href="tel:5550193">
+                  <span class="material-symbols-outlined text-[18px]">phone</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Blood Donation Awareness & Impact Card -->
+      <section class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold uppercase tracking-wider">
+            Community Impact
+          </span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Join Movement</span>
+        </div>
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="flex-shrink-0 w-20 h-20 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm p-1">
+            <svg class="w-16 h-16" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 18 C50 18, 30 45, 30 62 C30 73.0457 38.9543 82 50 82 C61.0457 82 70 73.0457 70 62 C70 45 50 18 50 18Z" fill="#b7131a" opacity="0.15"></path>
+              <path d="M50 25 C50 25, 36 48, 36 62 C36 70 42 76 50 76 C58 76 64 70 64 62 C64 48 50 25 50 25Z" fill="#b7131a"></path>
+              <path d="M50 63 L47.5 60.5 C41.5 55.5 38 52 38 48 C38 45 40 43 43 43 C45 43 47 44.5 48 46 C49 44.5 51 43 53 43 C56 43 58 45 58 48 C58 52 54.5 55.5 48.5 60.5 L50 63Z" fill="#ffffff"></path>
+              <circle cx="20" cy="35" fill="#00855b" r="4"></circle>
+              <circle cx="80" cy="35" fill="#00855b" r="4"></circle>
+              <circle cx="50" cy="90" fill="#00855b" r="4"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <h4 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-tight">
+              1 Donation Can Save 3 Lives
+            </h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+              Separated into red cells, plasma, and platelets, your single unit directly treats multiple trauma patients.
+            </p>
+          </div>
+        </div>
+        <!-- Next Camp Details Strip -->
+        <div class="w-full bg-surface-container-lowest rounded-lg p-3 flex items-center justify-between shadow-sm">
+          <div class="flex items-center space-x-2.5 min-w-0">
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+              <span class="material-symbols-outlined text-[20px]">campaign</span>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="font-label-md text-label-md font-bold text-on-surface truncate">City General Blood Drive</span>
+              <span class="font-body-sm text-[11px] text-on-surface-variant truncate">Tomorrow, 9:00 AM • Main Atrium Hall</span>
+            </div>
+          </div>
+          <button class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-bold shadow-sm hover:opacity-90 transition-opacity" id="rsvpBtn" onclick="rsvpCamp()">
+            Register
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(30,41,59,0.06)]" data-active-classes="text-primary font-label-md">
+    <div class="h-16 px-space-xs flex items-center justify-around relative">
+      <a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 transition-colors text-primary font-label-md" href="4-home.html">
+        <span class="material-symbols-outlined text-[24px]">water_drop</span>
+        <span class="font-label-sm text-label-sm">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="6-find-donors.html">
+        <span class="material-symbols-outlined text-[24px]">person_search</span>
+        <span class="font-label-sm text-label-sm">Find Donors</span>
+      </a>
+      <div class="relative -top-5 flex flex-col items-center">
+        <a aria-label="Emergency Request" class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_0_4px_rgba(229,57,53,0.18),0_12px_28px_rgba(183,19,26,0.35)] active:scale-95 transition-transform hover:bg-primary-container" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[28px]">e911_emergency</span>
+        </a>
+        <span class="font-label-sm text-label-sm text-primary font-bold mt-1">SOS Request</span>
+      </div>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors relative" href="index.html#notifications">
+        <div class="relative">
+          <span class="material-symbols-outlined text-[24px]">notifications</span>
+          <span class="absolute -top-0.5 -right-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
+        </div>
+        <span class="font-label-sm text-label-sm">Alerts</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="8-donor-dashboard.html">
+        <span class="material-symbols-outlined text-[24px]">account_circle</span>
+        <span class="font-label-sm text-label-sm">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    let isAvailable = true;
+    function toggleStatus() {
+      isAvailable = !isAvailable;
+      const btn = document.getElementById('availabilityToggle');
+      const txt = document.getElementById('availabilityText');
+      const ind = document.getElementById('status-indicator');
+      const lbl = document.getElementById('status-label');
+      if (isAvailable) {
+        btn.className = "inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container shadow-sm transition-all active:scale-95";
+        txt.textContent = "Active & Ready";
+        ind.className = "w-2.5 h-2.5 rounded-full bg-tertiary animate-ping";
+        lbl.textContent = "Ready to Donate";
+      } else {
+        btn.className = "inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container shadow-sm transition-all active:scale-95";
+        txt.textContent = "Away / Paused";
+        ind.className = "w-2.5 h-2.5 rounded-full bg-secondary";
+        lbl.textContent = "Status: Away";
+      }
+    }
+
+    function filterGroup(group, target) {
+      const buttons = document.querySelectorAll('.blood-filter-pill');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        const badge = btn.querySelector('span:first-child');
+        if (badge) badge.classList.add('text-primary');
+        const subtitle = btn.querySelector('span:last-child');
+        if (subtitle) {
+          subtitle.classList.remove('text-surface-container-low');
+          subtitle.classList.add('text-on-surface-variant');
+        }
+      });
+
+      target.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+      target.classList.add('bg-primary', 'text-on-primary');
+      const activeBadge = target.querySelector('span:first-child');
+      if (activeBadge) activeBadge.classList.remove('text-primary');
+      const activeSub = target.querySelector('span:last-child');
+      if (activeSub) {
+        activeSub.classList.remove('text-on-surface-variant');
+        activeSub.classList.add('text-surface-container-low');
+      }
+
+      // Filter visible donor cards
+      const cards = document.querySelectorAll('#donors-list > div');
+      cards.forEach(card => {
+        const blood = card.getAttribute('data-blood');
+        if (group === 'All' || blood === group || group === 'O+' || group === 'O-') {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function requestDirect(donorName, btn) {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">check</span> Sent`;
+      btn.classList.add('bg-tertiary');
+      btn.disabled = true;
+      setTimeout(() => {
+        alert("Emergency dispatch alert paged to " + donorName + " via SMS & Push notification.");
+      }, 100);
+    }
+
+    function rsvpCamp() {
+      const btn = document.getElementById('rsvpBtn');
+      btn.textContent = "Confirmed ✓";
+      btn.classList.remove('bg-tertiary-container');
+      btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+    }
+  </script>
+</body>
+</html>

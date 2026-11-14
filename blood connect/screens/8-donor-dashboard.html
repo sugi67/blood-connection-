@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { width: 100vw; margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    body { min-height: max(884px, 100dvh); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#ffdad6",
+            "on-tertiary-fixed": "#002113",
+            "primary-container": "#db322f",
+            "on-secondary-fixed": "#1a1c1c",
+            "secondary-fixed-dim": "#c6c6c7",
+            "tertiary-fixed": "#6ffbbe",
+            "on-secondary-fixed-variant": "#454747",
+            "surface-container-high": "#dee8ff",
+            "tertiary": "#006947",
+            "surface-container-highest": "#d8e3fb",
+            "inverse-primary": "#ffb4ac",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-surface-variant": "#5b403d",
+            "secondary-fixed": "#e2e2e2",
+            "primary": "#b7131a",
+            "on-secondary": "#ffffff",
+            "surface": "#f9f9ff",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#bb171c",
+            "on-secondary-container": "#616363",
+            "on-error-container": "#93000a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "outline-variant": "#e4beb9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#f5fff6",
+            "secondary-container": "#dfe0e0",
+            "background": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "surface-dim": "#cfdaf2",
+            "on-primary-fixed-variant": "#93000d",
+            "surface-container": "#e7eeff",
+            "inverse-on-surface": "#ecf1ff",
+            "primary-fixed-dim": "#ffb4ac",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#00855b",
+            "surface-container-low": "#f0f3ff",
+            "surface-bright": "#f9f9ff",
+            "on-surface": "#111c2d",
+            "secondary": "#5d5f5f",
+            "on-primary-fixed": "#410002",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "outline": "#906f6c"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "label-sm": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+  <!-- Top App Bar -->
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-sm">
+        <img alt="BloodConnect Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrBzo5vb3IUJ9bLqQMvAUndVNKcSe0ksycOKadzzg7QbMNgPsGwuLvIDTxD-PKfMyK5hOOB1P5l5xHCOHFvLNSlQAzqGI6tcMphy2J31qs0Aj3qEsH45woG1TBgTrw7E64bBtExaa-L88FIu0iDIFFEI4r23EggUVsycRC1kBUg0liLSSud66zdA4WcEPrjUJ7S6wjmKW48jNacJ4NIUWmWLNoQnqxy39UVY5lGJajne"/>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">BloodConnect</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm uppercase tracking-wider">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>Live SOS
+            </span>
+          </div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Donor Dashboard</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <a aria-label="Quick SOS Alert" class="min-h-[44px] min-w-[44px] px-space-sm py-1 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center gap-1 shadow-[0_0_0_2px_rgba(219,50,47,0.2)] hover:bg-primary transition-colors" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[18px]">e911_emergency</span>
+          <span>SOS</span>
+        </a>
+        <button aria-label="Settings" class="min-h-[44px] min-w-[44px] flex items-center justify-center p-0.5 rounded-full hover:bg-surface-container transition-colors">
+          <span class="material-symbols-outlined text-[24px] text-on-surface-variant">settings</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen">
+    <div class="flex flex-col w-full pb-8">
+      <!-- Profile & Real-Time Availability Beacon -->
+      <section class="px-margin pt-space-sm pb-space-md">
+        <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary-fixed/40 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex items-center gap-space-md z-10">
+            <div class="relative">
+              <img class="w-16 h-16 rounded-full object-cover shadow-sm" alt="Marcus Vance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRggjAITDozPQdaDGhOPUqdEOSk94P9ET8DthWlHtdLSf6C_nc4KbL42l_RVed_J8Pc4NUT9Or3rjcpDBvznPQYj2pSSycxjHhABQ43YR4N1psueR7rDgKaVCsa32ZTJRJH0Ds8GQy9_ZeIjpwlRDuRuzMMVkhHtQuUYWaN00kJANXOSrabBl3sE0G-bdd5gvKG5nWc3GU4nv4PHYL2nSetZZt4PceRgqJLicdOWw"/>
+              <span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-tertiary shadow-[0_0_0_2px_#ffffff] flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-ping"></span>
+              </span>
+            </div>
+            <div class="flex flex-col min-w-0 flex-1">
+              <div class="flex items-center gap-space-xs flex-wrap">
+                <h1 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Marcus Vance</h1>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                  <span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                  Gold Hero
+                </span>
+              </div>
+              <div class="flex items-center gap-space-xs mt-1">
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-sm">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">bloodtype</span>
+                  A+ Positive
+                </span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Universal Platelet</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Availability Switch -->
+          <div class="z-10 bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between gap-space-sm transition-colors duration-200" id="availability-card">
+            <div class="flex items-center gap-space-sm min-w-0">
+              <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse flex-shrink-0" id="status-dot"></span>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md text-on-surface font-semibold" id="status-title">Ready for Rapid Dispatch</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant" id="status-desc">You will receive local emergency trauma pings</span>
+              </div>
+            </div>
+            <button aria-checked="true" class="w-12 h-7 bg-tertiary rounded-full p-1 relative flex items-center transition-colors focus:outline-none flex-shrink-0" id="toggle-availability" onclick="toggleDonorAvailability()" role="switch" type="button">
+              <div class="w-5 h-5 bg-surface-container-lowest rounded-full shadow-md transform translate-x-5 transition-transform duration-200" id="toggle-knob"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Metrics Bento Row -->
+      <section class="px-margin pb-space-lg">
+        <div class="grid grid-cols-3 gap-space-xs">
+          <!-- Metric 1: Total Donations -->
+          <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col items-center text-center justify-between gap-1">
+            <div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-extrabold leading-none">6</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Donations</span>
+            </div>
+          </div>
+          <!-- Metric 2: Lives Saved -->
+          <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col items-center text-center justify-between gap-1">
+            <div class="w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">ecg_heart</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display-lg-mobile text-display-lg-mobile text-tertiary font-extrabold leading-none">18</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Lives Saved</span>
+            </div>
+          </div>
+          <!-- Metric 3: Countdown Progress Ring -->
+          <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col items-center text-center justify-between gap-1">
+            <div class="relative w-8 h-8 flex items-center justify-center">
+              <svg class="w-8 h-8 -rotate-90" viewbox="0 0 36 36">
+                <path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+                <path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="62, 100" stroke-linecap="round" stroke-width="3.5"></path>
+              </svg>
+              <span class="absolute material-symbols-outlined text-[14px] text-on-surface-variant">hourglass_top</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">45d</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Next Eligible</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Incoming Emergency Dispatches (High Priority Urgent Callout) -->
+      <section class="px-margin pb-space-lg">
+        <div class="flex items-center justify-between mb-space-xs">
+          <div class="flex items-center gap-space-xs">
+            <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary animate-ping"></span>
+            <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Active Urgent Dispatches</h2>
+          </div>
+          <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Level 1 Trauma</span>
+        </div>
+        <!-- Radiant High-Priority Card -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-[0_0_0_4px_rgba(219,50,47,0.15),0_12px_32px_rgba(183,19,26,0.22)] p-space-md flex flex-col gap-space-md relative overflow-hidden transition-all duration-300" id="dispatch-banner">
+          <div class="flex items-start justify-between gap-space-sm">
+            <div class="flex gap-space-sm items-start min-w-0">
+              <div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[24px] animate-pulse">e911_emergency</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="font-label-md text-label-md font-bold text-on-surface">City Trauma Center</span>
+                  <span class="px-2 py-0.2 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-bold">ICU Ward 4</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Critical accident patient needs immediate transfusion</p>
+              </div>
+            </div>
+            <span class="px-2 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold whitespace-nowrap">
+              O+ / A+ Req.
+            </span>
+          </div>
+          <!-- Live Logistics Pill Grid -->
+          <div class="bg-surface-container-low p-space-sm rounded-lg grid grid-cols-2 gap-space-xs text-on-surface-variant font-label-md text-label-md">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[18px] text-primary">distance</span>
+              <span class="font-bold text-on-surface">1.8 km</span>
+              <span class="text-body-sm font-normal">away</span>
+            </div>
+            <div class="flex items-center gap-1 justify-end">
+              <span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+              <span class="font-bold text-on-surface">~12 min</span>
+              <span class="text-body-sm font-normal">ETA</span>
+            </div>
+          </div>
+          <!-- Action Button Group -->
+          <div class="flex items-center gap-space-sm pt-space-xs" id="dispatch-actions">
+            <button class="flex-1 min-h-[48px] rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md active:scale-98 transition-transform hover:bg-primary" id="accept-dispatch-btn" onclick="acceptDispatch()" type="button">
+              <span class="material-symbols-outlined text-[20px]">check_circle</span>
+              <span>Accept Emergency Dispatch</span>
+            </button>
+            <button class="px-4 min-h-[48px] rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="declineDispatch()" type="button">
+              Decline
+            </button>
+          </div>
+          <!-- Accepted State Banner (hidden initially) -->
+          <div class="hidden flex-col gap-2 p-3 bg-tertiary-container/10 border border-tertiary/20 rounded-xl" id="dispatch-accepted-box">
+            <div class="flex items-center justify-between text-tertiary font-bold text-label-md">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-[18px]">verified</span>
+                Dispatch Accepted - Route Active
+              </span>
+              <span>Token #EM-4821</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">The clinical triage team has been alerted that you are en route. Navigation coordinates ready.</p>
+            <div class="flex gap-2 mt-1">
+              <a class="flex-1 py-2 px-3 rounded-lg bg-tertiary text-on-tertiary font-label-sm font-bold flex items-center justify-center gap-1 shadow-sm" href="https://maps.google.com" target="_blank">
+                <span class="material-symbols-outlined text-[16px]">navigation</span> Start GPS Navigation
+              </a>
+              <a class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-sm font-bold flex items-center justify-center gap-1" href="tel:911">
+                <span class="material-symbols-outlined text-[16px]">call</span> ICU Desk
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Donation History Timeline -->
+      <section class="px-margin pb-space-lg">
+        <div class="flex items-center justify-between mb-space-xs">
+          <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Donation History</h2>
+          <span class="font-label-sm text-label-sm text-primary font-semibold">6 Total Records</span>
+        </div>
+        <div class="flex flex-col gap-2">
+          <!-- Record 1 -->
+          <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex items-center justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-tertiary-fixed text-tertiary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">bloodtype</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md font-bold text-on-surface">Whole Blood Donation</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">City Memorial Transfusion Center</span>
+                <span class="font-label-sm text-[11px] text-tertiary font-semibold">Saved 3 Trauma Patients</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end">
+              <span class="font-label-sm text-label-sm font-bold text-on-surface">Oct 14, 2026</span>
+              <span class="font-label-sm text-[10px] text-tertiary bg-tertiary-container/10 px-2 py-0.5 rounded-full mt-0.5">Verified</span>
+            </div>
+          </div>
+          <!-- Record 2 -->
+          <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex items-center justify-between">
+            <div class="flex items-center gap-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-primary-fixed text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">science</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label-md text-label-md font-bold text-on-surface">Platelet Apheresis</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">St. Jude Regional Blood Bank</span>
+                <span class="font-label-sm text-[11px] text-primary font-semibold">Pediatric Oncology Ward</span>
+              </div>
+            </div>
+            <div class="flex flex-col items-end">
+              <span class="font-label-sm text-label-sm font-bold text-on-surface">Jul 22, 2026</span>
+              <span class="font-label-sm text-[10px] text-tertiary bg-tertiary-container/10 px-2 py-0.5 rounded-full mt-0.5">Verified</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements & Badges Showcase -->
+      <section class="px-margin pb-space-lg">
+        <div class="flex items-center justify-between mb-space-xs">
+          <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Lifesaver Milestones</h2>
+          <span class="font-label-sm text-label-sm text-secondary">3 of 6 Unlocked</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-primary-fixed text-primary flex items-center justify-center mb-1">
+              <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+            </div>
+            <span class="font-label-sm font-bold text-on-surface">First Drop</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant">First unit gave</span>
+          </div>
+          <div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center mb-1">
+              <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+            </div>
+            <span class="font-label-sm font-bold text-on-surface">5x Life Hero</span>
+            <span class="font-body-sm text-[10px] text-on-surface-variant">Gold level</span>
+          </div>
+          <div class="bg-surface-container-lowest p-3 rounded-xl shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-surface-container text-secondary flex items-center justify-center mb-1">
+              <span class="material-symbols-outlined text-[26px]">nightlight</span>
+            </div>
+            <span class="font-label-sm font-bold text-on-surface">Night Owl</span>
+            <span class="font-body-sm text-[10px] text-secondary">Locked (Code Red)</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(30,41,59,0.06)]">
+    <div class="h-16 px-space-xs flex items-center justify-around relative">
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="4-home.html">
+        <span class="material-symbols-outlined text-[24px]">water_drop</span>
+        <span class="font-label-sm text-label-sm">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="6-find-donors.html">
+        <span class="material-symbols-outlined text-[24px]">person_search</span>
+        <span class="font-label-sm text-label-sm">Find Donors</span>
+      </a>
+      <div class="relative -top-5 flex flex-col items-center">
+        <a aria-label="Emergency Request" class="w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_0_4px_rgba(229,57,53,0.18),0_12px_28px_rgba(183,19,26,0.35)] active:scale-95 transition-transform hover:bg-primary-container" href="7-emergency-request.html">
+          <span class="material-symbols-outlined text-[28px]">e911_emergency</span>
+        </a>
+        <span class="font-label-sm text-label-sm text-primary font-bold mt-1">SOS Request</span>
+      </div>
+      <a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 text-on-surface-variant hover:text-on-surface transition-colors relative" href="index.html#notifications">
+        <div class="relative">
+          <span class="material-symbols-outlined text-[24px]">notifications</span>
+          <span class="absolute -top-0.5 -right-1 w-2.5 h-2.5 rounded-full bg-primary"></span>
+        </div>
+        <span class="font-label-sm text-label-sm">Alerts</span>
+      </a>
+      <a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-2 py-1 transition-colors text-primary font-label-md" href="8-donor-dashboard.html">
+        <span class="material-symbols-outlined text-[24px]">account_circle</span>
+        <span class="font-label-sm text-label-sm">Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    let isAvailable = true;
+    function toggleDonorAvailability() {
+      isAvailable = !isAvailable;
+      const toggle = document.getElementById('toggle-availability');
+      const knob = document.getElementById('toggle-knob');
+      const dot = document.getElementById('status-dot');
+      const title = document.getElementById('status-title');
+      const desc = document.getElementById('status-desc');
+
+      if (isAvailable) {
+        toggle.className = "w-12 h-7 bg-tertiary rounded-full p-1 relative flex items-center transition-colors focus:outline-none flex-shrink-0";
+        knob.className = "w-5 h-5 bg-surface-container-lowest rounded-full shadow-md transform translate-x-5 transition-transform duration-200";
+        dot.className = "w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse flex-shrink-0";
+        title.textContent = "Ready for Rapid Dispatch";
+        desc.textContent = "You will receive local emergency trauma pings";
+      } else {
+        toggle.className = "w-12 h-7 bg-secondary-container rounded-full p-1 relative flex items-center transition-colors focus:outline-none flex-shrink-0";
+        knob.className = "w-5 h-5 bg-surface-container-lowest rounded-full shadow-md transform translate-x-0 transition-transform duration-200";
+        dot.className = "w-2.5 h-2.5 rounded-full bg-secondary flex-shrink-0";
+        title.textContent = "Status: Away / Ineligible";
+        desc.textContent = "Emergency pings paused until you reactivate";
+      }
+    }
+
+    function acceptDispatch() {
+      document.getElementById('dispatch-actions').classList.add('hidden');
+      document.getElementById('dispatch-accepted-box').classList.remove('hidden');
+      document.getElementById('dispatch-accepted-box').classList.add('flex');
+    }
+
+    function declineDispatch() {
+      const banner = document.getElementById('dispatch-banner');
+      banner.style.opacity = '0.5';
+      banner.innerHTML = '<div class="p-4 text-center text-on-surface-variant font-label-md">Dispatch declined. Redirecting to next standby donor in network.</div>';
+    }
+  </script>
+</body>
+</html>
